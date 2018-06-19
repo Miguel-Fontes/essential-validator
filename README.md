@@ -1,4 +1,5 @@
-# essentials-validation | [![Build Status](https://travis-ci.org/Miguel-Fontes/essentials-validation.svg?branch=master)](https://travis-ci.org/Miguel-Fontes/essentials-validation)
+# essentials-validation
+[![Build Status](https://travis-ci.org/Miguel-Fontes/essentials-validation.svg?branch=master)](https://travis-ci.org/Miguel-Fontes/essentials-validation)
 
 A library providing utilities for validation of entities and data.
 
@@ -6,7 +7,7 @@ A library providing utilities for validation of entities and data.
 
 <!-- TOC -->
 
-- [essentials-validation | [![Build Status](https://travis-ci.org/Miguel-Fontes/essentials-validation.svg?branch=master)](https://travis-ci.org/Miguel-Fontes/essentials-validation)](#essentials-validation--build-statushttpstravis-ciorgmiguel-fontesessentials-validationsvgbranchmasterhttpstravis-ciorgmiguel-fontesessentials-validation)
+- [essentials-validation](#essentials-validation)
     - [Contents](#contents)
     - [Motivation](#motivation)
     - [Features](#features)
