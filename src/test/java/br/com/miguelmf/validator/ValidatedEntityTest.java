@@ -55,22 +55,4 @@ class ValidatedEntityTest {
         consumer.accept(exception);
     }
 
-    @Test
-    @DisplayName("should build a valid Person")
-    void shouldBuildValidPerson(TestReporter reporter) {
-        final String name = "Miguel Fontes";
-        final Integer age = 30;
-
-        final Person person = Person.of(name, age);
-
-        assertAll(
-            () -> assertNotNull(person.getName()),
-            () -> assertEquals(name, person.getName()),
-            () -> assertNotNull(person.getAge()),
-            () -> assertEquals(age, person.getAge())
-        );
-
-        reporter.publishEntry("Built person", person.toString());
-    }
-
 }
