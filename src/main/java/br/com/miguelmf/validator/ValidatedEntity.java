@@ -11,9 +11,9 @@ import javax.validation.ValidatorFactory;
 /**
  * A ValidatedEntity is a entity annotated with Javax Validation Constraints
  * and can be validated. This class provides common code to all those
- * entities, executing the {@code Validator} logic when requested by 
+ * entities, executing the {@code Validator} logic when requested by
  * {@code Validated#validate()} method.
- * 
+ *
  * @author Miguel Fontes
  */
 class ValidatedEntity {
@@ -22,10 +22,11 @@ class ValidatedEntity {
      * Validate this Entity based on the present annotations. If Violations are detected,
      * thows a IllegalArgumentException with a String containing all errors concatenated
      * and separated by a comma. Example:
-     * 
+     *
      *     A Person age should not be null, A Person age should be greater than zero
-     * 
-     * @throws IllegalArgumentException when Constraint Violantions are detected
+     *
+     * @throws IllegalArgumentException when Constraint Violations are detected, with a message
+     *                                  containing all detected erros separated by a comma.
      */
     protected void validate() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();

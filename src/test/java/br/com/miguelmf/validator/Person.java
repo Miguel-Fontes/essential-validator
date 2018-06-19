@@ -6,11 +6,15 @@ import javax.validation.constraints.NotNull;
 
 public class Person extends ValidatedEntity {
 
-    @NotBlank(message="A Person name should not be null or blank")
+    public static final String NAME_SHOULD_NOT_BE_NULL_OR_BLANK = "A Person name should not be null or blank";
+    public static final String AGE_SHOULD_NOT_BE_NULL = "A Person age should not be null";
+    public static final String AGE_SHOULD_BE_GT_ZERO = "A Person age should be greater than zero";
+
+    @NotBlank(message = NAME_SHOULD_NOT_BE_NULL_OR_BLANK)
     private final String name;
 
-    @NotNull(message="A Person age should not be null")
-    @Min(value=1, message="A Person age should be greater than zero")
+    @NotNull(message = AGE_SHOULD_NOT_BE_NULL)
+    @Min(value = 1, message = AGE_SHOULD_BE_GT_ZERO)
     private final Integer age;
 
     private Person(String name, Integer age) {
@@ -38,7 +42,6 @@ public class Person extends ValidatedEntity {
     public Integer getAge() {
         return age;
     }
-
 
     @Override
     public String toString() {
