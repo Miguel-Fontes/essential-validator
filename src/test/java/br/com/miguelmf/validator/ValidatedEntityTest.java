@@ -1,12 +1,12 @@
 package br.com.miguelmf.validator;
 
-import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.List;
+import static java.util.Arrays.asList;import java.util.List;
 import java.util.function.Consumer;
 
 import org.junit.jupiter.api.DisplayName;
@@ -53,6 +53,24 @@ class ValidatedEntityTest {
         });
 
         consumer.accept(exception);
+    }
+
+    @Test
+    @DisplayName("should build a valid Entity")
+    void shouldBuildAValidEntity(TestReporter reporter) {
+        final String name = "Miguel Fontes";
+        final Integer age = 30;
+
+        final Person person = Person.of(name, age);
+
+        assertAll(
+            () -> assertNotNull(person.getName()),
+            () -> assertEquals(name, person.getName()),
+            () -> assertNotNull(person.getAge()),
+            () -> assertEquals(age, person.getAge())
+        );
+
+        reporter.publishEntry("Built person", person.toString());
     }
 
 }
