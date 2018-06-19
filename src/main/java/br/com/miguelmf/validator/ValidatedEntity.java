@@ -45,7 +45,7 @@ class ValidatedEntity {
 
     private static String toMessageList(Set<ConstraintViolation<ValidatedEntity>> constraintViolations) {
         return constraintViolations.stream()
-            .map(violation -> violation.getMessage())
+            .map(ConstraintViolation::getMessage)
             .collect(Collectors.joining(", "));
     }
 
