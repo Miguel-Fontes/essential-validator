@@ -13,39 +13,35 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestReporter;
 
-@DisplayName("Person")
-class PersonTest {
+@DisplayName("ValidatedEntityTest")
+class ValidatedEntityTest {
 
     @Test
     @DisplayName("Person should throw IllegalArgumentException when built with invalid attributes")
     void shouldReturnValidationError(TestReporter reporter) {
-        final String aPersonNameShouldNotBeNullOrBlank = "A Person name should not be null or blank";
-        final String aPersonAgeShouldNotBeNull = "A Person age should not be null";
-        final String aPersonAgeShouldBeGreaterThanZero = "A Person age should be greater than zero";
-
         assertAll(
-            () -> assertSingleValidationError("", 18, aPersonNameShouldNotBeNullOrBlank, "Blank Name", reporter),
-            () -> assertSingleValidationError(null, 18, aPersonNameShouldNotBeNullOrBlank, "Null Name", reporter),
-            () -> assertSingleValidationError("Name", null, aPersonAgeShouldNotBeNull, "Null Age", reporter),
-            () -> assertSingleValidationError("Name", 0, aPersonAgeShouldBeGreaterThanZero, "Zero Age", reporter)
+            () -> assertSingleValidationError("", 18, Person.NAME_SHOULD_NOT_BE_NULL_OR_BLANK, "Blank Name", reporter),
+            () -> assertSingleValidationError(null, 18, Person.NAME_SHOULD_NOT_BE_NULL_OR_BLANK, "Null Name", reporter),
+            () -> assertSingleValidationError("Name", null, Person.AGE_SHOULD_NOT_BE_NULL, "Null Age", reporter),
+            () -> assertSingleValidationError("Name", 0, Person.AGE_SHOULD_BE_GT_ZERO, "Zero Age", reporter)
         );
 
         assertAll(
             () -> assertMultipleValidationErrors("", 0,
-                asList(aPersonAgeShouldBeGreaterThanZero, aPersonNameShouldNotBeNullOrBlank),
+                asList(Person.AGE_SHOULD_BE_GT_ZERO, Person.NAME_SHOULD_NOT_BE_NULL_OR_BLANK),
                 "Zero Age and Blank Name", reporter)
         );
     }
 
     private void assertSingleValidationError(String name, Integer age, String expected, String entryKey,
             TestReporter reporter) {
-        assertValidationError(name, age, entryKey, reporter, exception -> 
+        assertValidationError(name, age, entryKey, reporter, exception ->
             assertEquals(expected, exception.getMessage()));
     }
 
     private void assertMultipleValidationErrors(String name, Integer age, List<String> expectedErrors, String entryKey,
             TestReporter reporter) {
-        assertValidationError(name, age, entryKey, reporter, exception -> 
+        assertValidationError(name, age, entryKey, reporter, exception ->
             expectedErrors.forEach(error -> assertTrue(exception.getMessage().contains(error))));
     }
 
@@ -68,9 +64,9 @@ class PersonTest {
         final Person person = Person.of(name, age);
 
         assertAll(
-            () -> assertNotNull(person.getName()), 
+            () -> assertNotNull(person.getName()),
             () -> assertEquals(name, person.getName()),
-            () -> assertNotNull(person.getAge()), 
+            () -> assertNotNull(person.getAge()),
             () -> assertEquals(age, person.getAge())
         );
 
