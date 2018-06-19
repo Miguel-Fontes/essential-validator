@@ -16,7 +16,7 @@ import javax.validation.ValidatorFactory;
  *
  * @author Miguel Fontes
  */
-class ValidatedEntity {
+public class ValidatedEntity {
 
     /**
      * Validate this Entity based on the present annotations. If Violations are detected,
@@ -45,7 +45,7 @@ class ValidatedEntity {
 
     private static String toMessageList(Set<ConstraintViolation<ValidatedEntity>> constraintViolations) {
         return constraintViolations.stream()
-            .map(violation -> violation.getMessage())
+            .map(ConstraintViolation::getMessage)
             .collect(Collectors.joining(", "));
     }
 
