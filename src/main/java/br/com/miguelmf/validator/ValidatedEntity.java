@@ -16,7 +16,7 @@ import javax.validation.ValidatorFactory;
  *
  * @author Miguel Fontes
  */
-class ValidatedEntity {
+public class ValidatedEntity {
 
     /**
      * Validate this Entity based on the present annotations. If Violations are detected,
