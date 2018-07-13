@@ -1,4 +1,4 @@
-package br.com.miguelmf.validator;
+package br.com.miguelfontes.validator;
 
 import java.util.Set;
 import java.util.stream.Collectors;

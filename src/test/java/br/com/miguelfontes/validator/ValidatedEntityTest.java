@@ -1,4 +1,4 @@
-package br.com.miguelmf.validator;
+package br.com.miguelfontes.validator;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,4 +1,4 @@
-package br.com.miguelmf.validator;
+package br.com.miguelfontes.validator;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
