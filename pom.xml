@@ -4,7 +4,7 @@
 
     <groupId>br.com.miguelfontes</groupId>
     <artifactId>essentials-validation</artifactId>
-    <version>1.1</version>
+    <version>1.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>essentials-validation</name>
@@ -35,7 +35,7 @@
         <connection>scm:git:git@github.com:Miguel-Fontes/essentials-validation.git</connection>
         <url>scm:git:git@github.com:Miguel-Fontes/essentials-validation.git</url>
         <developerConnection>scm:git:git@github.com:Miguel-Fontes/essentials-validation.git</developerConnection>
-        <tag>essentials-validation-1.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>
