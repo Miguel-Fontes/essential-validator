@@ -59,7 +59,7 @@
                     <releaseProfiles>release</releaseProfiles>
                     <goals>deploy</goals>
                     <goals>deploy nexus-staging:release</goals>
-                </configuration>>
+                </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.apache.maven.scm</groupId>
